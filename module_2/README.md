@@ -2,5 +2,5 @@
 
 ```bash
 // Start your project
-$ npx create-expo-app <your-project-name>
+$ npx create-expo-app -t expo-template-blank-typescript <your-project-name>
 ```
