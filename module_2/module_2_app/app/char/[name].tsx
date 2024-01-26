@@ -1,15 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Link } from 'expo-router'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useLocalSearchParams, router } from 'expo-router';
 
-export default function App() {
+export default function CharPage() {
+  const { name } = useLocalSearchParams();
+  const clickBack = () => {
+    router.back()
+  }
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Select your character</Text>
-      <Link style={styles.button} href="/char/luigi">Luigi</Link>
-      <Link style={styles.button} href="/char/peach">Peach</Link>
-      <Link style={styles.button} href="/char/toad">Toad</Link>
-      <Link style={styles.button} href="/char/mario">Mario</Link>
+      <Text style={styles.text}>Char name: {name}</Text>
+      <TouchableOpacity style={styles.button} onPress={clickBack}>
+        <Text style={{color: 'white'}}>Go back</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
